@@ -1,6 +1,7 @@
 
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { escapeHtmlComment } from '@vue/shared';
 import store from '../store';
 </script>
 
@@ -114,9 +115,12 @@ import store from '../store';
         },
     },
     mounted(){
-        console.log(this.message)
         axios.get('api/users').then( response => {
             this.users = response.data.users
+        })
+
+        Echo.private(`user.${this.user.id}`).listen('.SendMessage', (e) => {
+            console.log(e)
         })
     }
  }

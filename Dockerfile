@@ -19,7 +19,7 @@ RUN a2enmod rewrite
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
-EXPOSE 6001
+# EXPOSE 6001
 
 # Concede permissoes
 # RUN chown -R www-data:www-data *
